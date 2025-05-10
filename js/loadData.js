@@ -6,6 +6,7 @@ html=data.map(item=>`
         <p class="title">${item.title}</p>
         ${item.img_src ? `<img src="${item.img_src}" alt="">` : ''}
         ${item.code ? `<pre><code class="language-javascript">${escapeHTML(item.code)}</code></pre>` : ''}
+        ${item.link ? `<a href="${item.link}">${item.link}</a>` : ''}
     </div>    
 `).join('');
 
