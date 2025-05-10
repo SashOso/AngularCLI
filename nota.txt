@@ -1,0 +1,12 @@
+---instalar angular -------
+npm install -g @angular/cli
+
+---ver version----
+ng version
+
+--crear proyecto
+ng new NOMBRE
+cd NOMBRE
+
+--iniciar servidor
+ng server

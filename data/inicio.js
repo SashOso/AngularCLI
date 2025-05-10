@@ -1,6 +1,29 @@
 const data=[
 
 {
+title:"Instalación",
+code:
+`
+//falta probar
+npm install -g typescript
+
+//---instalar angular -------
+npm install -g @angular/cli
+
+//---ver version----
+ng version
+
+//--crear proyecto
+ng new NOMBRE
+cd NOMBRE
+
+//--iniciar servidor
+ng -o server
+npm start`
+},
+
+
+{
 title:"tsconfig.json",
 code:
 `{
