@@ -85,7 +85,12 @@ code:
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
             <td mat-cell *matCellDef="let element"> {{element.fecha | date:'dd/MM/yyyy'}} </td>
         </ng-container>
-  
+
+        <!--Dinero-->
+        <ng-container matColumnDef="monto">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Monto </th>
+            <td mat-cell *matCellDef="let element"> S/ {{element.monto | number:'1.2-2' }} </td>
+        </ng-container>
 
         <!-- Boton Editar -->
         <ng-container matColumnDef="editar" >
