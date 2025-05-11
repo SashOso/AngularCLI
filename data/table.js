@@ -15,8 +15,8 @@ title:"TS",
 code:
 `
 import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { ProveedorService } from '../../services/proveedor.service';
-import { Router } from '@angular/router';
+import { Provee,dorService } from '../../services/proveedor.service';
+import { Router, RouterLink } from '@angular/router';
 import { Proveedor } from '../../models/proveedor';
 
 import { MatTableDataSource } from '@angular/material/table';
@@ -32,7 +32,8 @@ import { MatSortModule } from '@angular/material/sort';
   imports: [
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    RouterLink
   ],
   ....
 })
