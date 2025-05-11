@@ -15,9 +15,9 @@ title:"TS",
 code:
 `
 import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { Proveedor,dorService } from '../../services/proveedor.service'; // servicio
+import { Proveedor,dorService } from '../../services/proveedor.service'; // service
 import { Router, RouterLink } from '@angular/router';
-import { Proveedor } from '../../models/proveedor'; //modelo
+import { Proveedor } from '../../models/proveedor'; //model
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -46,9 +46,6 @@ export class ProveedorListarComponent implements OnInit, AfterViewInit{
       
     service : ProveedorService = inject(ProveedorService);
     route: Router = inject(Router);
-      
-    constructor() {
-    }
       
     ngAfterViewInit(): void {
         this.dataSource.sort = this.sort;
