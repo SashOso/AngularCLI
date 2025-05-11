@@ -66,7 +66,8 @@ code:
 {
 title:"app.config.ts",
 code:
-`import { provideHttpClient } from '@angular/common/http';
+`...
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
     providers: [...., provideHttpClient()]
