@@ -14,9 +14,9 @@ title:"TS",
 code:
 `
 import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { IngresoService } from '../../services/ingreso.service';
+import { ProveedorService } from '../../services/proveedor.service';
 import { Router } from '@angular/router';
-import { Ingreso } from '../../models/ingreso';
+import { Proveedor } from '../../models/proveedor';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
