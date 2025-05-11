@@ -47,6 +47,9 @@ ng g class models/NOMBRE --skip-tests
 //.. crear servicio
 ng g s services/NOMBRBE --skip-tests
 
+//..generar el environment
+ng generate environments
+
 //... agregar materiales ...
 ng add @angular/material`
 },
