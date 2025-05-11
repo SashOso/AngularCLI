@@ -12,8 +12,30 @@ ng g c components/NOMBRE/list --skip-tests`
 {
 title:"TS",
 code:
-`export class ProveedorListarComponent implements OnInit, AfterViewInit{
-    lista: Proveedor[] = [];
+`
+import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
+import { IngresoService } from '../../services/ingreso.service';
+import { Router } from '@angular/router';
+import { Ingreso } from '../../models/ingreso';
+
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+@Component({
+  .....
+  imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+  ],
+  ....
+})
+export class ProveedorListarComponent implements OnInit, AfterViewInit{
     displayedColumns: string[] = ['id', 'nombre', 'fechaInscripcion', 'direccion', 'telefono', 'email', 'editar', 'eliminar'];
     dataSource: MatTableDataSource<Proveedor> = new MatTableDataSource<Proveedor>();
       
