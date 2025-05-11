@@ -81,6 +81,8 @@ code:
     { path: '', component: HomeComponent , pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'proveedores', component: ProveedorListarComponent },
+    { path: 'regitrar-proveedor', component: ProveedorRegistroComponent },
+    { path: 'regitrar-proveedor/:id', component: ProveedorRegistroComponent },
 ];`
 },
 
