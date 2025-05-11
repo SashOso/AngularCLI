@@ -15,9 +15,9 @@ title:"TS",
 code:
 `
 import { AfterViewInit, Component, inject, OnInit, ViewChild } from '@angular/core';
-import { Provee,dorService } from '../../services/proveedor.service';
+import { Proveedor,dorService } from '../../services/proveedor.service'; // servicio
 import { Router, RouterLink } from '@angular/router';
-import { Proveedor } from '../../models/proveedor';
+import { Proveedor } from '../../models/proveedor'; //modelo
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
