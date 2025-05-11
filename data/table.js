@@ -26,6 +26,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { CommonModule } from '@angular/common';
 
 @Component({
   .....
@@ -33,7 +34,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
   ....
 })
@@ -76,6 +78,12 @@ code:
         <ng-container matColumnDef="id" >
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
             <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <!--Fecha-->
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+            <td mat-cell *matCellDef="let element"> {{element.fecha | date:'dd/MM/yyyy'}} </td>
         </ng-container>
   
 
