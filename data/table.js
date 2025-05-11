@@ -3,10 +3,11 @@ const data=[
 {
 title:"Comando",
 code:
-`ng g c components/proveedor-listar --skip-tests
+`//Crear el componente
+ng g c components/proveedor-listar --skip-tests
 
-//cambiar
-ng g c components/NOMBRE/list --skip-tests`
+//Agregar los materiales
+ng add @angular/material`
 },
 
 {
