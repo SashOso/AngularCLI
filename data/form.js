@@ -132,7 +132,7 @@ export class ProveedorNuevoEditComponent {
             obj.direccion = this.formulario.value.direccion;
             obj.email = this.formulario.value.email;
             this.talla.id=this.formulario.value.talla;
-            item.talla = this.talla; 
+            obj.talla = this.talla; 
             if (!this.edicion ) {
                 this.service.insert(obj).subscribe((data: Object): void => {
                     this.service.list().subscribe(data => {
