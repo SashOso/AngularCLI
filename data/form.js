@@ -155,20 +155,26 @@ code:
     <mat-card-content>
         <form [formGroup]="formulario" class="form-container">
 
-        <!--TextBox-->
+        <!--Texto-->
         <mat-form-field appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <input matInput formControlName="nombre" placeholder="Ingrese su nombre" />
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="descripcion" placeholder="Ingrese su nombre" />
         </mat-form-field>
-
+        
         <!--Fecha-->
         <mat-form-field appearance="fill">
             <mat-label>Fecha</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="fechaInscripcion"
-                    placeholder="Seleccione su fecha de inscripcion" />
+            <input matInput [matDatepicker]="picker" formControlName="fecha"
+                    placeholder="Seleccione la fecha" />
             <mat-hint>DD/MM/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <!--Decimal-->
+        <mat-form-field appearance="fill">
+            <mat-label>Monto</mat-label>
+            <input matInput type="number" step="0.01" formControlName="monto" placeholder="Ingrese el monto" />
         </mat-form-field>
 
         <!--ComboBox-->
