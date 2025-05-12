@@ -27,7 +27,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgForOf } from '@angular/common';
 
+import { TallaService } from '../../services/talla.service'; //ervice de lcombobox
+import { Talla } from '../../models/talla';// model del comobox
 /*
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle,MatDatepickerModule} from '@angular/material/datepicker';//add
 import {MatNativeDateModule, MatOption} from "@angular/material/core";//add
@@ -46,7 +49,8 @@ import {NgForOf} from '@angular/common';//add
         MatSelectModule,
         MatButtonModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        NgForOf
        /*
         MatCardContent, MatLabel, MatHint, //add
         MatDatepickerModule,//add
@@ -67,8 +71,8 @@ export class ProveedorNuevoEditComponent {
     id: number = 0 ;
 
     tallaService:TallaService=inject(TallaService)
-    public idtalla: number = 0;
-    listatalla: Talla[] = [];
+    public talla_id: number = 0;
+    lista_talla: Talla[] = [];
     talla: Talla = new Talla();
     
     constructor() {
@@ -79,13 +83,14 @@ export class ProveedorNuevoEditComponent {
             direccion: ['', Validators.required],
             telefono: ['', [Validators.required, Validators.pattern("^[0-9]{9}$")]],
             email: ['', [Validators.required, Validators.email]],
+            talla: ['', Validators.required],
         })
     }
 
-    loadCombobox():void{
+    loadComboboxTalla():void{
         this.tallaService.list().subscribe({
             next: (data: Talla[]) => {
-                this.listatalla = data;
+                this.lista_talla = data;
             },
             error: (error: any) => {
                 console.error(error);
@@ -95,7 +100,7 @@ export class ProveedorNuevoEditComponent {
     
     
     ngOnInit(): void {
-        this.loadCombobox();
+        this.loadComboboxTalla();
         this.route.params.subscribe((data: Params) => {
             this.id = data['id'];
             this.edicion = data['id'] != null;
@@ -110,7 +115,8 @@ export class ProveedorNuevoEditComponent {
                     fechaInscripcion: data.fechaInscripcion,
                     telefono: data.telefono,
                     direccion: data.direccion,
-                    email: data.email
+                    email: data.email,
+                    talla:data.talla.id,
                 });
             });
         }
@@ -125,6 +131,8 @@ export class ProveedorNuevoEditComponent {
             obj.telefono = this.formulario.value.telefono;
             obj.direccion = this.formulario.value.direccion;
             obj.email = this.formulario.value.email;
+            this.talla.id=this.formulario.value.talla;
+            item.talla = this.talla; 
             if (!this.edicion ) {
                 this.service.insert(obj).subscribe((data: Object): void => {
                     this.service.list().subscribe(data => {
@@ -180,8 +188,8 @@ code:
         <!--ComboBox-->
         <mat-form-field appearance="fill">
             <mat-label>Tipo</mat-label>
-            <mat-select formControlName="tipoPrenda" [(value)]="idtipoPrenda" required>
-                <mat-option *ngFor="let item of listaTipoPrenda" [value]="item.id">
+            <mat-select formControlName="talla" [(value)]="talla_id" required>
+                <mat-option *ngFor="let item of lista_talla" [value]="item.id">
                 {{item.nombre}}
                 </mat-option>
             </mat-select>
