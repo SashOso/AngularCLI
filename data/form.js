@@ -13,20 +13,49 @@ ng g c components/NOMBRE/form --skip-tests`
 {
 title:"TS",
 code:
-`import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle,MatDatepickerModule} from '@angular/material/datepicker';//add
+`import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProveedorService } from '../../services/proveedor.service'; //service
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Proveedor } from '../../models/proveedor'; //model
+
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+/*
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle,MatDatepickerModule} from '@angular/material/datepicker';//add
 import {MatNativeDateModule, MatOption} from "@angular/material/core";//add
 import {MatInputModule} from "@angular/material/input";//add
 import {MatSelect} from '@angular/material/select';//add
 import {NgForOf} from '@angular/common';//add
-
-imports: [
+*/
+@Component({
     ...
-    MatCardContent, MatLabel, MatHint, //add
-    MatDatepickerModule,//add
-    MatNativeDateModule, //add
-    MatInputModule, MatSelect, MatOption, NgForOf, //add
-  ],
-
+    imports: [
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        FormsModule
+       /*
+        MatCardContent, MatLabel, MatHint, //add
+        MatDatepickerModule,//add
+        MatNativeDateModule, //add
+        MatInputModule, MatSelect, MatOption, NgForOf, //add
+        */
+      ],
+    ...
+})
 export class ProveedorNuevoEditComponent {
     formulario: FormGroup;
     fb = inject(FormBuilder);
