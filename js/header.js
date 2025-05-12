@@ -35,6 +35,11 @@ function LoadSidebar(){
                 <i class="fa-solid fa-shield-halved"></i>
                 <span>Segurity</span>
             </a></li>
+
+            <li><a href="vsc.html">
+                <i class="fa-brands fa-microsoft"></i>
+                <span>Visual Studio Code</span>
+            </a></li>
         </ul>
     `;
     document.querySelector(".sidebar").innerHTML=sidebar_html
